@@ -1,5 +1,12 @@
 <launch>
-  <include file="$(find maze_simulations)/launch/maze.launch" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find maze_simulations)/worlds/bigmaze_obstacles.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
 
   <arg name="map_file" default="$(find maze_solver)/maps/maze1.yaml"/>
   <arg name="initial_pose_x" default=" 9.4999"/>

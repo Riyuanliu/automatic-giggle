@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# license removed for brevity
+
 import rospy
 from TurtlebotDriving import TurtlebotDriving
 
@@ -23,22 +23,31 @@ config = {
 
 # Input Handling
 def load_map():
-    os.chdir('./src/robotics-project/maze_solver')
-    print(os.getcwd())
+    try:
+        os.chdir('./src/automatic-giggle/maze_solver')
+        print("Current working directory:", os.getcwd())
+        
+        # List items in the current directory
+        print("Directory contents:", os.listdir(os.getcwd()))
+        
+        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+        # Open map yaml file
+        with open(os.path.join(config["map_dir"], config["map_info"])) as file:
+            map_config = yaml.load(file, Loader=yaml.FullLoader)
 
-    # Open map yaml file
-    with open(os.path.join(config["map_dir"], config["map_info"])) as file:
-        map_config = yaml.load(file, Loader=yaml.FullLoader)
+        # Read image
+        input_map = cv2.imread(os.path.join(config["map_dir"], map_config["image"]), -1)
 
-    # Read image
-    input_map = cv2.imread(os.path.join(config["map_dir"], map_config["image"]), -1)
+        # Make wall = 1, path = 0
+        input_map = (input_map != 254).astype(int)
 
-    # Make wall = 1, path = 0
-    input_map = (input_map != 254).astype(int)
+        return input_map, map_config
+    
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
 
-    return input_map, map_config
 
 # Maze Creation
 def create_maze(input_map):
