@@ -88,6 +88,7 @@ To tell the robot where to go in the maze, you can publish a goal to the `/move_
    ```
 
 This will instruct the robot to navigate to the specified coordinates in the maze while avoiding obstacles.
-
+![alt text](./image/final_image.png)
 ---
+
 [Watch the video](https://youtu.be/EAJ-3ry8NRQ)
