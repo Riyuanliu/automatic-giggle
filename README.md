@@ -41,8 +41,8 @@ Make sure you have the following installed:
    roslaunch maze_simulations maze.launch
    ```
    This will run the maze in its normal condition, without any obstacles.
-![init maze](image/image.png)
-![alt text](image/image_RVIZ.png.png)
+![init maze](image/init_maze_image.png)
+![alt text](image/image_RVIZ.png)
 ### Step 2: Run the Maze Solver
 
 - **Open Terminal 2** and run the maze solver script:
