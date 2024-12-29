@@ -41,7 +41,8 @@ Make sure you have the following installed:
    roslaunch maze_simulations maze.launch
    ```
    This will run the maze in its normal condition, without any obstacles.
-
+![init maze](image/image.png)
+![alt text](image/image_RVIZ.png.png)
 ### Step 2: Run the Maze Solver
 
 - **Open Terminal 2** and run the maze solver script:
@@ -89,5 +90,4 @@ To tell the robot where to go in the maze, you can publish a goal to the `/move_
 This will instruct the robot to navigate to the specified coordinates in the maze while avoiding obstacles.
 
 ---
-
-That's it! You're now ready to run the maze-solving robot with obstacles, and you can observe how the robot navigates and solves the maze in real time.
+[Watch the video](https://youtu.be/QHC2gP0d35Q)
